@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Computer Graphics Project</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Syne:wght@600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="bg-shape bg-a"></div>
+  <div class="bg-shape bg-b"></div>
+
+  <main class="app">
+    <header class="topbar">
+      <h1>Computer Graphics Project</h1>
+      <p>Click a section button to run and animate its algorithm.</p>
+    </header>
+
+    <section class="controls" aria-label="Section controls">
+      <button data-section="sec2">Sec 2</button>
+      <button data-section="sec3">Sec 3</button>
+      <button data-section="sec4">Sec 4 (DDA)</button>
+      <button data-section="sec5">Sec 5 (Bresenham)</button>
+      <button data-section="sec6">Sec 6 (Clipping)</button>
+      <button data-section="sec6-example1" class="sec6-only">Example 1</button>
+      <button data-section="sec6-new" class="sec6-only">New</button>
+      <button data-section="finish">Finish</button>
+      <button data-section="clear" class="ghost">Clear</button>
+    </section>
+
+    <section class="examples-panel" id="examples-panel" aria-label="Section examples">
+      <p id="examples-title" class="examples-title">Examples</p>
+      <div class="examples-actions">
+        <button data-example="1" id="example-1">Example 1</button>
+        <button data-example="2" id="example-2">Example 2</button>
+        <button data-example="3" id="example-3">Example 3</button>
+      </div>
+      <div class="steps-actions" id="steps-actions">
+        <label for="steps-input">Steps</label>
+        <input id="steps-input" type="number" min="2" max="40" value="12" />
+        <button id="generate-random-steps" type="button">Generate Random</button>
+      </div>
+    </section>
+
+    <section class="sec6-panel" id="sec6-panel" aria-label="Sec 6 custom input">
+      <label for="shape-type">Shape</label>
+      <select id="shape-type">
+        <option value="triangle">Triangle</option>
+        <option value="rectangle">Square / Rectangle</option>
+        <option value="polygon">Polygon</option>
+      </select>
+
+      <p id="shape-help" class="shape-help"></p>
+
+      <label for="vertices-input">Vertices (x,y one per line)</label>
+      <textarea id="vertices-input" rows="5" placeholder="50,150&#10;200,50&#10;350,150"></textarea>
+
+      <label for="clip-window">Clipping window (x_min,x_max,y_min,y_max)</label>
+      <input id="clip-window" type="text" value="100,300,100,300" />
+
+      <button id="run-custom-sec6" type="button">Run Custom Clipping</button>
+    </section>
+
+    <section class="stage">
+      <canvas id="stage" width="980" height="560" aria-label="Drawing canvas"></canvas>
+      <aside class="info">
+        <h2 id="title">Ready</h2>
+        <p id="desc">Pick a section to start animation.</p>
+        <pre id="log"></pre>
+      </aside>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
